@@ -1,0 +1,6 @@
+#replacing string on a range of lines
+linux is great os. unix is opensource. unix is free os.
+linux is great os. unix is opensource. unix is free os.
+learn operating system.
+unix linux which one you choose.
+unix is easy to learn.unix is a multiuser os.Learn unix .unix is a powerful
