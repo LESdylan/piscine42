@@ -1,9 +1,8 @@
 # Explaination
 
----
 ## First case 
 1. `cat /etc/passwd` : display the content of the file where all the information about the user are contained.
-|	important : [info](https://www.ibm.com/docs/en/aix/7.1?topic=passwords-using-etcpasswd-file)
+|	important : [to get to know about /etc/passwd strucutre](https://www.ibm.com/docs/en/aix/7.1?topic=passwords-using-etcpasswd-file)
 2. `grep -v "^#"`: It's going to filter the comment in case there are some. (it's just to respect the exercise)
 3. `sed -n 'n;p'`: print from the second line, which jumping one line to another.
 4. `cut -d ':' -f 1`: extract only the login.
