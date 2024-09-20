@@ -6,13 +6,9 @@
 /*   By: dylan-soul <dylan-soul@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 16:20:55 by dylan-soul        #+#    #+#             */
-/*   Updated: 2024/09/09 15:59:31 by dylan-soul       ###   ########.fr       */
+/*   Updated: 2024/09/20 19:38:21 by dylan-soul       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 /*	THEORY
 	~Good article -> https://lwn.net/Articles/507319/
@@ -30,7 +26,7 @@
    	though that is the impression a lot of new C programmers get since it does take a "size" parameter.
    	💡The third argument is for the number of char to be read from the source buffer, not the maximum capacity of the destination buffer💡
 */
-char *ft_strncpy(char *dest, const char *src, unsigned int n)
+/*char	*ft_strncpy(char *dest, const char *src, unsigned int n)
 {
     char *original_dest = dest; // Save the start of the destination
 
@@ -50,7 +46,99 @@ char *ft_strncpy(char *dest, const char *src, unsigned int n)
     }
     
     return original_dest;  //Return the beginning of the destination string
+}*/
+// or *ft_strncpy other version
+
+char	*ft_strncpy(char *dest, const char *src, unsigned int n)
+{
+	int i;
+	i = 0;
+	while(*src != '\0' && n)
+		*(dest + i++) = *src++;
+		--n;
+	while(n--)
+		*(dest + i++) = '\0';
+	return(dest);
 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define BUF_SIZE 60
+// Function to print buffer content, showing '/' for empty spaces
+void print_buffer(const char *buffer, size_t size) {
+	int count;
+	count = 0;
+    for (size_t i = 0; i < size; i++) {
+        if (buffer[i] != '\0') {
+            putchar(buffer[i]);
+			count++;
+        } else {
+            putchar('*'); // Represent empty space with '/'
+        }
+    }
+	printf("\tpadding [%lu-%u] = %lu", size, count, (size - count));
+    puts("\n\n");
+}
+
+// Function to print an empty buffer (all '/')
+void print_empty_buffer(size_t size) {
+    for (size_t i = 0; i < size; i++) {
+        putchar('*'); // Represent all spaces with '/'
+    }
+    puts("\n\n");
+}
+
+int main(void) 
+{
+    char srcBuffer[50];
+    char destBuffer[BUF_SIZE];
+    int i, j, n;
+    char c;
+
+    j = 0;
+    n = 70;
+    srand(time(NULL));
+    while (++j < 10) {
+        i = 0;
+        // Generating random string
+        while ((c = rand() % (126 - 32 + 1) + 32) != '~' && i < sizeof(srcBuffer) - 1) {
+            srcBuffer[i++] = c;
+        }
+        srcBuffer[i] = '\0';
+        printf("##### NEW ITERATION %d\n", j);
+		puts("---------------------------------------------------------------------------------------");
+		puts("INFORMATION: ");
+		printf("source_buffer \t size is ------> %lu, \t length is -----> %lu\n", sizeof(srcBuffer), strlen(srcBuffer));
+		printf("destBuffer \t size is ------> %lu\n", sizeof(destBuffer));
+        printf("The generated string is:\t%s\t(Size: %lu)\n", srcBuffer, strlen(srcBuffer));
+
+        // Print completely empty buffer for contrast
+        printf("Completely empty buffer: ");
+        print_empty_buffer(BUF_SIZE);
+
+        // Using strncpy
+        memset(destBuffer, 0, sizeof(destBuffer)); // Clear destBuffer
+        strncpy(destBuffer, srcBuffer, n);
+        destBuffer[BUF_SIZE - 1] = '\0'; // Ensure null-termination
+        
+        printf("Dest Buffer after strncpy(): ");
+        print_buffer(destBuffer, BUF_SIZE);
+
+        // Using custom ft_strncpy
+        memset(destBuffer, 0, sizeof(destBuffer)); // Clear destBuffer again
+        ft_strncpy(destBuffer, srcBuffer, n);
+        
+        printf("Dest Buffer after ft_strncpy(): ");
+        print_buffer(destBuffer, BUF_SIZE);
+        puts("---------------------------------------------------------------------------------------\n\n\n");
+    }
+    return 0;
+}
+
+
+
 
 /*
 #define N 60
