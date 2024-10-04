@@ -1,0 +1,130 @@
+#include <stdio.h>													    |	./file.exe
+#include <string.h>													    |	DATA 1
+typedef struct 														    |	Character: h
+{															    |	String:hello world
+	int number;													    |	Float: 56465.1641
+	char c;														    |	Double: 154564.000000
+	char str[50];													    |	Long: 9223372036854775807
+	float fnumber;													    |	Signed Integer: -25
+	double dnumber;													    |	Unsigned Integer: 25
+	long lnumber;													    |
+	signed int num;													    |	DATA 2
+	unsigned int num2;												    |	Character: x
+}DATA;															    |	String:salut monde
+int main()														    |	Float: 12345.6787
+{															    |	Double: 987654.321000
+	DATA dateArray[2] = 												    |	Long: 1234567890
+	{														    |	Signed Integer: -15
+		{5555,'h',"hello world",56465.1654,154564,9223372036854775807, -25, 25},				    |	Unsigned Integer: 30
+		{1234,'x',"salut monde", 12345.6789, 987654.321, 1234567890, -15, 30}					    |
+	};														    |	the entire universe has 1073741824 bugs. 
+															    |	You are expected to have 120.000000 bugs.
+	int i; 														    |	That is only a 1.117587e-07 portion of the universe.
+	i = -1;														    |	which means you should care 0%.
+	while(++i < 2)													    |
+	{														    |
+		printf("DATA %d\n", i + 1);										    |	#================================================================================#
+		printf("Character: %c\n", dateArray[i].c);								    |	CONTROL THE WIDHT OF THE OUPUT
+		printf("String:%s\n", dateArray[i].str);								    |	#================================================================================#
+		printf("Float: %.4f\n", dateArray[i].fnumber);								    |	Pi with precision: 3.14
+		printf("Double: %.6lf\n", dateArray[i].dnumber);							    |	Name with width :      Alice
+		printf("Long: %ld\n", dateArray[i].lnumber);								    |
+		printf("Signed Integer: %d\n", dateArray[i].num);							    |
+		printf("Unsigned Integer: %u\n", dateArray[i].num2);							    |	#=================================================================================#
+		printf("\n");												    |	Flags
+	};														    |	#=================================================================================#
+	int bugs = 100;													    |	right-aligned: 	|   25|
+	double bug_rate = 1.2;												    |	left-aligned: 	|25   |
+	long universe_of_bugs = 1L * 1024L*1024L * 1024L;								    |	Sign: 		|  +25|
+	printf("the entire universe has %ld bugs. \n", universe_of_bugs);						    |	Zero padding:	|00025|
+	double expected_bugs = bugs * bug_rate;										    |	hash flag: 	|0x19|
+	printf("You are expected to have %f bugs.\n", expected_bugs);							    |
+	double part_of_universe = expected_bugs / universe_of_bugs;							    |
+	printf("That is only a %e portion of the universe.\n", part_of_universe);					    |	#=================================================================================#
+															    |	FIELD WITDH
+	// something weird												    |	#=================================================================================#
+	char null_byte = '\0';												    |	|    7|
+	int care_percentage = bugs * null_byte;										    |	|7    |
+	printf("which means you should care %d%%.\n\n\n", care_percentage);						    |
+	puts("#================================================================================#");			    |
+	puts("CONTROL THE WIDHT OF THE OUPUT");										    |	#=================================================================================#
+	puts("#================================================================================#");			    |	Precision with Floating Point and Strings
+	double pi = 3.14159;												    |	#=================================================================================#
+	char name[] = "Alice";												    |	Pi with 2 decimal places : 3.14
+	int num = 25;													    |	Pi with 4 decimal places3.1416
+	printf("Pi with precision: %.2f\n", pi);									    |	First 3 letters of name: Ali
+	printf("Name with width : %10s\n\n\n", name);									    |
+	puts("#=================================================================================#");			    |
+	puts("Flags");													    |	#=================================================================================#
+	puts("#=================================================================================#");			    |	dynamic width and precision using '*'
+	printf("right-aligned: 	|%5d|\n", num); 	// default right-align						    |	#=================================================================================#
+	printf("left-aligned: 	|%-5d|\n", num);	// left-align							    |	Value with dynamic width : |  3.141590|
+	printf("Sign: 		|%+5d|\n", num);	// show plus sign for positive numbers				    |	Value with dynamic precision: |3.14|
+	printf("Zero padding:	|%05d|\n", num);	// pad with zeros						    |
+	printf("hash flag: 	|%#x|\n\n\n", num);		// Hexadecimal with `0x` prefix				    |
+	puts("#=================================================================================#");			    |	#=================================================================================#
+	puts("FIELD WITDH");												    |	handling integers: Signed, unsigned, and different Bases
+	puts("#=================================================================================#");			    |	#=================================================================================#
+	num = 7;													    |	Decimal 255
+	printf("|%5d|\n", num);												    |	Unsigned: 255
+	printf("|%-5d|\n\n\n", num);											    |	Hexadecimal ff
+	puts("#=================================================================================#");			    |	Octal 377
+	puts("Precision with Floating Point and Strings");								    |
+	puts("#=================================================================================#");			    |
+	printf("Pi with 2 decimal places : %.2f\n", pi);								    |	#=================================================================================#
+	printf("Pi with 4 decimal places%.4f\n", pi);									    |	printing pointers:
+	printf("First 3 letters of name: %.3s\n\n\n", name);								    |	#=================================================================================#
+	puts("#=================================================================================#");			    |	Pointer : 0x7ffd61c87d48
+	puts("dynamic width and precision using '*'");									    |
+	puts("#=================================================================================#");			    |
+	int width = 10;													    |	#=================================================================================#
+	int precision = 2;												    |	Escape sequences
+	double value = 3.14159;												    |	#=================================================================================#
+	printf("Value with dynamic width : |%*f|\n", width, value);							    |	1. Newline: This is line one.
+	printf("Value with dynamic precision: |%.*f|\n\n\n", precision, value);						    |	This is line two.
+															    |
+	puts("#=================================================================================#");			    |	2. Horizontal Tab:
+	puts("handling integers: Signed, unsigned, and different Bases");						    |		This text is indented using a tab.
+	puts("#=================================================================================#");			    |
+	int num3 = 255;													    |	3. Backslash: To display a backslash, use \\ like this.
+	printf("Decimal %d\n", num3);											    |
+	printf("Unsigned: %u\n", num3);											    |	4. Double Quote: He said, "Hello!".
+	printf("Hexadecimal %x\n", num3);										    |
+	printf("Octal %o\n\n\n", num3);											    |	5. Single Quote: It's a beautiful day.
+	puts("#=================================================================================#");			    |
+	puts("printing pointers:");											    |	6. Carriage Return: This text will be overwritten by the																New Text.
+	puts("#=================================================================================#");			    |
+	int x = 42;													    |	7. Form Feed (used in older printers to go to the next page).Form Feed Example (you won't see much difference on most cons
+	int *ptr = &x;													    |
+	printf("Pointer : %p\n\n\n", ptr);										    |	8. Backspace: TextThis will delete last few characters.
+	puts("#=================================================================================#");			    |
+	puts("Escape sequences");											    |	9. Audible Alert: This will make a beep sound!
+	puts("#=================================================================================#");			    |
+	printf("1. Newline: This is line one.\nThis is line two.\n\n");							    |	10. Vertical Tab:This text is shifted vertically.
+    															    |
+    	printf("2. Horizontal Tab:\n\tThis text is indented using a tab.\n\n");						    |	11. Question Mark: What is this character? ?
+    															    |
+    	printf("3. Backslash: To display a backslash, use \\\\ like this.\n\n");					    |	12. Null Character: Null terminator in strings \0, but not visible in output.
+    															    |	This is a test[1;31m in red[0m.
+    	printf("4. Double Quote: He said, \"Hello!\".\n\n");								    <
+    															    <
+    	printf("5. Single Quote: It\'s a beautiful day.\n\n");								    <
+    															    <
+    	printf("6. Carriage Return: This text will be overwritten by the\rNew Text.\n\n");				    <
+    															    <
+    	printf("7. Form Feed (used in older printers to go to the next page).\fForm Feed Example (you won't see much diffe  <
+    															    <
+    	printf("8. Backspace: Text\b\b\b\bThis will delete last few characters.\n\n");					    <
+    															    <
+    	printf("9. Audible Alert: This will make a beep sound!\a\n\n"); // You might hear a beep			    <
+    															    <
+    	printf("10. Vertical Tab:\vThis text is shifted vertically.\n\n");						    <
+    															    <
+    	printf("11. Question Mark: What is this character? \?\n\n");							    <
+															    <
+    	printf("12. Null Character: Null terminator in strings \\0, but not visible in output.\n");			    <
+															    <
+	printf("This is a test\e[1;31m in red\e[0m.\n");								    <
+	return 0;													    <
+															    <
+}															    <

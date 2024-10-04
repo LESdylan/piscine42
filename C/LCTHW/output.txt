@@ -1,0 +1,108 @@
+./file.exe
+DATA 1
+Character: h
+String:hello world
+Float: 56465.1641
+Double: 154564.000000
+Long: 9223372036854775807
+Signed Integer: -25
+Unsigned Integer: 25
+
+DATA 2
+Character: x
+String:salut monde
+Float: 12345.6787
+Double: 987654.321000
+Long: 1234567890
+Signed Integer: -15
+Unsigned Integer: 30
+
+the entire universe has 1073741824 bugs. 
+You are expected to have 120.000000 bugs.
+That is only a 1.117587e-07 portion of the universe.
+which means you should care 0%.
+
+
+#================================================================================#
+CONTROL THE WIDHT OF THE OUPUT
+#================================================================================#
+Pi with precision: 3.14
+Name with width :      Alice
+
+
+#=================================================================================#
+Flags
+#=================================================================================#
+right-aligned: 	|   25|
+left-aligned: 	|25   |
+Sign: 		|  +25|
+Zero padding:	|00025|
+hash flag: 	|0x19|
+
+
+#=================================================================================#
+FIELD WITDH
+#=================================================================================#
+|    7|
+|7    |
+
+
+#=================================================================================#
+Precision with Floating Point and Strings
+#=================================================================================#
+Pi with 2 decimal places : 3.14
+Pi with 4 decimal places3.1416
+First 3 letters of name: Ali
+
+
+#=================================================================================#
+dynamic width and precision using '*'
+#=================================================================================#
+Value with dynamic width : |  3.141590|
+Value with dynamic precision: |3.14|
+
+
+#=================================================================================#
+handling integers: Signed, unsigned, and different Bases
+#=================================================================================#
+Decimal 255
+Unsigned: 255
+Hexadecimal ff
+Octal 377
+
+
+#=================================================================================#
+printing pointers:
+#=================================================================================#
+Pointer : 0x7ffd61c87d48
+
+
+#=================================================================================#
+Escape sequences
+#=================================================================================#
+1. Newline: This is line one.
+This is line two.
+
+2. Horizontal Tab:
+	This text is indented using a tab.
+
+3. Backslash: To display a backslash, use \\ like this.
+
+4. Double Quote: He said, "Hello!".
+
+5. Single Quote: It's a beautiful day.
+
+6. Carriage Return: This text will be overwritten by theNew Text.
+
+7. Form Feed (used in older printers to go to the next page).Form Feed Example (you won't see much difference on most consoles).
+
+8. Backspace: TextThis will delete last few characters.
+
+9. Audible Alert: This will make a beep sound!
+
+10. Vertical Tab:This text is shifted vertically.
+
+11. Question Mark: What is this character? ?
+
+12. Null Character: Null terminator in strings \0, but not visible in output.
+This is a test[1;31m in red[0m.
