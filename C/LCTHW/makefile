@@ -3,23 +3,27 @@
  TARGET = file.exe
  PATH_EX= ./ex07
  SRC = $(PATH_EX)/a.c
-.PHONY: confirmation
-confirmation: 
-	@echo -n "are you sure? [y\N]" && read ans && [ $${ans:-N} = y]
 
-.PHONY: no-dirty
+.PHONY: confirmation no-dirty all clean exe update
+confirmation: 
+	@echo -n 'are you sure? [y\N]' && read ans && [ $${ans:-N} = y ]
+
 no-dirty:
-	@test -z "$(shell git status --porcelain)"
-.PHONY : all 
+	@if ! test -z "$(git status --porcelain)"; then \
+		echo "Error : The repository is dirty. Place commit or stash your changes."; \
+		exit 1; \
+	fi
+ 
 all: $(TARGET)
-$(TARGET./LCTHW/ex01/m) : $(SRC)
+
+$(TARGET) : $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
-.PHONY : clean
+
 clean: 
 	@rm -rf $(TARGET)
-.PHONY : exe
+
 exe: $(TARGET)
 	@./$(TARGET)
-.PHONY : update
+
 update: confirmation no-dirty
 	@git add .; git commit -m "updated"; git push
