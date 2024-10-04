@@ -59,6 +59,9 @@
   "files.associations": {
     "unistd.h": "c",
     "stdio.h": "c",
-    "limits.h": "c"
+    "limits.h": "c",
+    "random": "cpp",
+    "limits": "cpp",
+    "algorithm": "cpp"
   }
 }
