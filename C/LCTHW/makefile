@@ -1,8 +1,8 @@
  CC = gcc
  CFLAGS = -g -Wall -Wextra -Werror
  TARGET = file.exe
- PATH_EX= ./ex07
- SRC = $(PATH_EX)/a.c
+ PATH_EX= ./ex09
+ SRC = $(PATH_EX)/switch.c
 
 .PHONY: confirmation no-dirty all clean exe update
 confirmation: 
@@ -23,7 +23,7 @@ clean:
 	@rm -rf $(TARGET)
 
 exe: $(TARGET)
-	@./$(TARGET)
+	@./$(TARGET) $(args)
 
 update: confirmation no-dirty
 	@git add .; git commit -m "updated"; git push
